@@ -1,5 +1,7 @@
 // import SideNav from "@/components/Nav/SideNav";
-import SideNav2 from "@/components/Nav/SideNav";
+
+import SideNav from "@/components/Nav/SideNav";
+
 import TableContainer from "@/components/Table/y-shadcn-table";
 // import { Button } from "@/components/ui/button";
 
@@ -10,7 +12,7 @@ function Dashboard() {
     <div className="flex ">
       {/* <SimpleTable /> */}
       {/* <SideNav /> */}
-      <SideNav2 />
+      <SideNav />
       <section>
         <TableContainer />
         <Outlet />

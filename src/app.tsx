@@ -1,9 +1,9 @@
+import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 import { Link } from "@tanstack/react-router";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Todo from "@/sample/todo/app-todo";
 import JSONComponent from "@/sample/fetch-example/tryfetch";
 import Pokemon from "@/sample/pokemon/pokemonapp";
-
 
 export default function Landing() {
   return (
@@ -31,6 +31,21 @@ export default function Landing() {
           </TabsContent>
         </Tabs>
       </div>
+      <Cards />
     </>
   );
 }
+
+const Cards = () => {
+  return (
+    <Card className="max-w-xs mx-auto">
+      <Text>Sales</Text>
+      <Metric>$ 71,465</Metric>
+      <Flex className="mt-4">
+        <Text>32% of annual target</Text>
+        <Text>$ 225,000</Text>
+      </Flex>
+      <ProgressBar value={32} className="mt-2" />
+    </Card>
+  );
+};

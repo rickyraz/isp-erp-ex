@@ -15,16 +15,6 @@ const config = {
     // Path to the Tremor module
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        "dark-purple": "#081A51",
-        "light-white": "rgba(255,255,255,0.17)",
-      },
-    },
-  },
 } satisfies Config;
 
 export default config;
-
-// require("tailwindcss-animate")

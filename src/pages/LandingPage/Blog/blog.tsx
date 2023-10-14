@@ -1,5 +1,9 @@
-function AboutPage() {
-  return <div>AboutPage</div>;
+import React from 'react'
+
+function blog() {
+  return (
+    <div>blog</div>
+  )
 }
 
-export default AboutPage;
+export default blog

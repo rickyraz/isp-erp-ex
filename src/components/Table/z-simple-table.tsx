@@ -75,7 +75,6 @@ const columns = [
 ];
 
 export default function SimpleTable() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [data] = useState(() => [...defaultData]);
   const rerender = useReducer(() => ({}), {})[1];
 
