@@ -1,9 +1,11 @@
 import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
 import { Link } from "@tanstack/react-router";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Todo from "@/sample/todo/app-todo";
-import JSONComponent from "@/sample/fetch-example/tryfetch";
-import Pokemon from "@/sample/pokemon/pokemonapp";
+import Todo from "@/core/example/todo/app-todo";
+import JSONComponent from "@/core/example/fetch-example/tryfetch";
+import Pokemon from "@/core/example/pokemon/pokemonapp";
+import { formatNum } from "./lib/format-num";
+("@/lib/format-num");
 
 export default function Landing() {
   return (
@@ -40,7 +42,7 @@ const Cards = () => {
   return (
     <Card className="max-w-xs mx-auto">
       <Text>Sales</Text>
-      <Metric>$ 71,465</Metric>
+      <Metric>{formatNum.format(71_465)}</Metric>
       <Flex className="mt-4">
         <Text>32% of annual target</Text>
         <Text>$ 225,000</Text>
