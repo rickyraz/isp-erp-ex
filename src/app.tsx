@@ -4,8 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Todo from "@/core/example/todo/app-todo";
 import JSONComponent from "@/core/example/fetch-example/tryfetch";
 import Pokemon from "@/core/example/pokemon/pokemonapp";
-import { formatNum } from "./lib/format-num";
-("@/lib/format-num");
+import { formatNum } from "./i18n/format/format-num";
 
 export default function Landing() {
   return (
