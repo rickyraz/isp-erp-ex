@@ -1,9 +1,10 @@
 import { Router, Route, RootRoute } from "@tanstack/react-router";
 import Landing from "@/pages/landingpage/app";
-import AboutPage from "@/pages/landingpage/blog/Blog";
-import LoginPage from "@/pages/auth/Login";
+
 import Dashboard from "@/pages/dashboard/DashboardWrap";
 import Root from "./RootRouterWrapper";
+import PricingPage from "@/pages/landingpage/pricing/Pricing";
+import Order from "@/pages/landingpage/order/Order";
 
 // Root
 const rootRoute = new RootRoute({
@@ -17,29 +18,35 @@ const indexRoute: Route = new Route({
   component: Landing,
 });
 
-// About (about.tsx) route
-const aboutRoute = new Route({
+// About (pricing-page.tsx) route
+const pricingPage = new Route({
   getParentRoute: () => rootRoute,
-  path: "/about",
-  component: AboutPage,
+  path: "/pricing",
+  component: PricingPage,
+});
+
+const orderPage = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/order",
+  component: Order,
 });
 
 // Login (login.tsx) route
-const loginPage = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/login",
-  component: LoginPage,
-});
+// const loginPage = new Route({
+//   getParentRoute: () => rootRoute,
+//   path: "/login",
+//   component: LoginPage,
+// });
 
 // Dashboard (dashboard.tsx) route - masuk ke dashboard
-const dashboardRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/dashboard",
-  component: Dashboard,
-});
+// const dashboardRoute = new Route({
+//   getParentRoute: () => rootRoute,
+//   path: "/dashboard",
+//   component: Dashboard,
+// });
 
 // All Route - List of route
-const allRoute = [indexRoute, aboutRoute, loginPage, dashboardRoute];
+const allRoute = [indexRoute, pricingPage, orderPage];
 
 // Create the Route-TREE for using all routes
 const routeTree = rootRoute.addChildren(allRoute);

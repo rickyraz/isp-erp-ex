@@ -1,20 +1,24 @@
+import { Link } from "@tanstack/react-router";
+
 function Header() {
   return (
     <header className="text-sm py-8 bg-[#161D27]">
       <div className="flex justify-between max-w-5xl mx-auto items-center">
-        <a href="/">
+        <Link to="/">
           <img
             src="/logo/logo-light.png"
             alt="logo"
             className="max-w-[185px]"
           />
-        </a>
+        </Link>
 
         <ul className="flex space-x-8 text-white">
           <li>Feature</li>
-          <a href="/pricing">
+
+          <Link to="/pricing">
             <li>Pricing</li>
-          </a>
+          </Link>
+
           <a href="/order">
             <li>Order</li>
           </a>

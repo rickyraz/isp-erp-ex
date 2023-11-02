@@ -1,52 +1,17 @@
-import { Card, Text, Metric, Flex, ProgressBar } from "@tremor/react";
-import { Link } from "@tanstack/react-router";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Todo from "@/core/example/todo/app-todo";
-import JSONComponent from "@/core/example/fetch-example/tryfetch";
-import Pokemon from "@/core/example/pokemon/pokemonapp";
-import { formatNum } from "../../i18n/format/format-num";
+import Layout from "@/components/Layout";
+import Hero from "@/components/landingpage/Hero";
+
+import Feature from "@/components/landingpage/Feature";
+import ChooseUs from "@/components/landingpage/ChooseUs";
+import Interest from "@/components/landingpage/Interest";
 
 export default function Landing() {
   return (
-    <>
-      <div className="flex justify-center space-x-10 capitalize mt-6">
-        <Link to="/login">login</Link>
-        <Link to="/about">about</Link>
-        <Link to="/dashboard">dashboard</Link>
-      </div>
-      <div className="flex justify-center items-center mt-11 mx-24">
-        <Tabs defaultValue="todo" className="w-full ">
-          <TabsList>
-            <TabsTrigger value="todo">Todo App</TabsTrigger>
-            <TabsTrigger value="json">JSON Placeholder</TabsTrigger>
-            <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
-          </TabsList>
-          <TabsContent value="todo">
-            <Todo />
-          </TabsContent>
-          <TabsContent value="json">
-            <JSONComponent />
-          </TabsContent>
-          <TabsContent value="pokemon">
-            <Pokemon />
-          </TabsContent>
-        </Tabs>
-      </div>
-      <Cards />
-    </>
+    <Layout>
+      <Hero />
+      <Feature />
+      <ChooseUs />
+      <Interest />
+    </Layout>
   );
 }
-
-const Cards = () => {
-  return (
-    <Card className="max-w-xs mx-auto">
-      <Text>Sales</Text>
-      <Metric>{formatNum.format(71_465)}</Metric>
-      <Flex className="mt-4">
-        <Text>32% of annual target</Text>
-        <Text>$ 225,000</Text>
-      </Flex>
-      <ProgressBar value={32} className="mt-2" />
-    </Card>
-  );
-};
