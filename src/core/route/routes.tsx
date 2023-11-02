@@ -1,6 +1,6 @@
 import { Router, Route, RootRoute } from "@tanstack/react-router";
 import Landing from "@/app";
-import AboutPage from "@/pages/landingpage/blog/blog";
+import AboutPage from "@/pages/landingpage/Blog/Blog";
 import LoginPage from "@/pages/auth/Login";
 import Dashboard from "@/pages/dashboard/DashboardWrap";
 import Root from "./RootRouterWrapper";
