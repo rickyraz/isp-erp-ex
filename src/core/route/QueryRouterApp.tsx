@@ -10,17 +10,7 @@ function QueryRouterApp() {
     <>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={routeClient} />
-        <ReactQueryDevtools
-          initialIsOpen
-          position="top-right"
-          toggleButtonProps={{
-            style: {
-              marginRight: "5.5rem",
-              transform: `scale(.7)`,
-              transformOrigin: "top right",
-            },
-          }}
-        />
+        <ReactQueryDevtools initialIsOpen position="right" />
       </QueryClientProvider>
     </>
   );
