@@ -1,9 +1,22 @@
-import React from "react";
+import { useCart, useAddItem } from "@/store/useCart";
+import { Link } from "@tanstack/react-router";
+import { useNavigate, Router } from "@tanstack/react-router";
 
 function Cart() {
+  const selectedProduct = useCart((state) => state.products);
+
+  console.log("product yang di select", selectedProduct);
+  console.log("IDproduk", selectedProduct[0]);
+
+  // const product = useAddItem((state) => state.product);
+  // console.log("jumlah product", product);
+
   return (
     <div>
       <Stepper />
+      {/* <p>jumlah product {product}</p>
+      <p>dibawah ada mapping</p> */}
+
       <div className="h-screen bg-white">
         <div className="py-12">
           <div className="max-w-5xl mx-auto bg-slate-50 shadow-md rounded-lg  md:max-w-5xl">
@@ -22,17 +35,25 @@ function Cart() {
                         /> */}
 
                         <div className="flex flex-col ">
-                          <span className="md:text-md font-medium">
-                            Business Plan
-                          </span>
-                          <span className="text-xs font-light text-gray-400">
+                          <select value={selectedProduct[0]}>
+                            <option value="1">Personal Plan</option>
+                            <option value="2">Business Plan</option>
+                            <option value="3">Enterprise Plan</option>
+                          </select>
+                          {/* <span className="md:text-md font-medium">
+                            {selectedProduct?.name}
+                          </span> */}
+                          {/* <span className="text-xs font-light text-gray-400">
                             #41551
-                          </span>
+                          </span> */}
                         </div>
                       </div>
 
                       <div className="flex-col justify-end items-end text-end text-xs">
-                        <span className=" font-medium">RP.210.000</span>
+                        {/* <span className=" font-medium">RP.210.000</span> */}
+                        <span className=" font-medium">
+                          {selectedProduct?.price}
+                        </span>
 
                         <div>
                           <select
@@ -52,9 +73,11 @@ function Cart() {
                     <div className="flex justify-between items-center mt-16 pt-6 border-t">
                       <div className="flex items-center">
                         <i className="fa fa-arrow-left text-sm pr-2"></i>
-                        <span className="text-md  font-medium text-blue-400">
-                          Back to pricing
-                        </span>
+                        <Link to="/pricing">
+                          <span className="text-md  font-medium text-blue-400">
+                            Back to pricing
+                          </span>
+                        </Link>
                       </div>
 
                       {/* <div className="flex justify-center items-end">

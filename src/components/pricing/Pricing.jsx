@@ -1,8 +1,16 @@
-import React from "react";
+import { useCart, useAddItem } from "@/store/useCart";
+import { useEffect } from "react";
+import { useNavigate, Router } from "@tanstack/react-router";
 
 const Pricing = () => {
+  const addProduct = useAddItem((state) => state.addProductID);
+
   return (
     <section className=" pb-12 pt-16 bg-[#1c2431]">
+      {/* <button onClick={addProduct} className="bg-slate-300">
+        add
+      </button> */}
+
       <div className="max-w-5xl mx-auto">
         <div className=" mb-[60px] max-w-3xl mx-auto  lg:mb-20">
           <h2 className="mb-4 text-3xl font-bold text-center  sm:text-4xl md:text-[40px] text-[#EDC997]">
@@ -16,11 +24,13 @@ const Pricing = () => {
 
         <div className="flex space-x-4">
           <PricingCard
+            name={"Personal Plan"}
             type="Personal"
             price="RP 250.000"
             subscription="month"
             description="Perfect for using in a personal website or a client project."
             buttonText="Subscribe Basic Plan"
+            productId={1}
           >
             <List>1 User</List>
             <List>All UI components</List>
@@ -30,11 +40,13 @@ const Pricing = () => {
             <List>3 Months support</List>
           </PricingCard>
           <PricingCard
+            name={"Business Plan"}
             type="Business"
             price="RP 550.000"
             subscription="month"
             description="Perfect for using in a personal website or a client project."
             buttonText="Subscribe Business Plan"
+            productId={2}
             active
           >
             <List>5 User</List>
@@ -45,11 +57,13 @@ const Pricing = () => {
             <List>4 Months support</List>
           </PricingCard>
           <PricingCard
+            name={"Enterprise Plan"}
             type="Enterprise"
             price="RP 1.150.000"
             subscription="month"
             description="Perfect for using in a personal website or a client project."
             buttonText="Subscribe Enterprise Plan"
+            productId={3}
           >
             <List>Unlimited User</List>
             <List>All UI components</List>
@@ -64,8 +78,6 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
-
 const PricingCard = ({
   children,
   description,
@@ -74,7 +86,36 @@ const PricingCard = ({
   subscription,
   buttonText,
   active,
+  productId,
 }) => {
+  const navigate = useNavigate({ from: "/pricing" });
+
+  const addToCart = useCart((state) => state.addToCart);
+  const productsInCart = useCart((state) => state.products);
+  const isProductInCart = productsInCart.includes(productId);
+  const removeFromCart = useCart((state) => state.removeFromCart);
+
+  const handleButtonClick = () => {
+    if (isProductInCart) {
+      removeFromCart(productId);
+    } else {
+      // Check if the cart is empty before adding a product
+      if (productsInCart.length === 0) {
+        addToCart(productId);
+        navigate({ to: "/order" });
+      } else {
+        // Display a message or handle the case where a product is already in the cart
+      }
+    }
+  };
+
+  // useEffect(() => {
+  //   if (isProductInCart) {
+  //     // Use useEffect to navigate when a product is in the cart
+  //     navigate({ to: "/order" });
+  //   }
+  // }, [isProductInCart]);
+
   return (
     <>
       <div className="w-full md:w-1/2 lg:w-1/3">
@@ -95,14 +136,20 @@ const PricingCard = ({
             </p>
           </ul>
           <a
-            href="/order"
-            className={` ${
+            onClick={handleButtonClick}
+            className={`hover:cursor-pointer ${
               active
-                ? ` w-full block text-base font-semibold text-white bg-blue-600 border border-primary rounded-md text-center p-4 hover:bg-blue-700 transition`
-                : `block w-full rounded-md border  border-[#c5d1f8] bg-transparent p-4 text-center text-base font-semibold text-blue-600 transition hover:border-blue-600 hover:bg-blue-600 hover:text-white`
-            } `}
+                ? `w-full block text-base font-semibold text-white ${
+                    isProductInCart ? "bg-[#EDC997]" : "bg-blue-600"
+                  } border border-primary rounded-md text-center p-4 hover:bg-blue-700 transition`
+                : `block w-full rounded-md border border-[#c5d1f8] bg-transparent p-4 text-center text-base font-semibold ${
+                    isProductInCart
+                      ? "bg-[#EDC997] text-white"
+                      : "text-blue-950 hover:bg-blue-700"
+                  }  transition hover:border-blue-600 hover-bg-[#EDC997] `
+            }`}
           >
-            {buttonText}
+            {isProductInCart ? "Remove from Cart" : buttonText}
           </a>
           <div>
             <span className="absolute right-0 top-7 z-[-1]">
@@ -377,3 +424,5 @@ const List = ({ children }) => {
     </>
   );
 };
+
+export default Pricing;

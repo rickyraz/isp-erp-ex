@@ -1,3 +1,5 @@
+import Payment from "./images/payment.png";
+
 function ChooseUs() {
   const chooseItems = [
     {
@@ -8,7 +10,7 @@ function ChooseUs() {
         "Automated recurring & prepaid billing",
         "Multiple payment channels",
       ],
-      imageUrl: "/image/payment.png",
+      imageUrl: { Payment },
     },
     {
       title: "Modern visuals and easy data export",

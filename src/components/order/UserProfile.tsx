@@ -1,10 +1,10 @@
 import { FormProvider, useForm } from "react-hook-form";
-import Input from "../../group/Input";
-import PasswordInput from "../../group/PasswordInput";
+import Input from "@/components/form/Input";
+import PasswordInput from "@/components/form/PasswordInput";
 import { yupResolver } from "@hookform/resolvers/yup";
-import type { StepOneData } from "../../../../types";
-import { stepTwoSchema } from "../../../lib/yup";
-import useFormStore from "../../../store/useFormStore";
+import type { StepTwoData } from "@/lib/type";
+import { stepTwoSchema } from "@/lib/validation/yup";
+import useFormStore from "@/store/useFormStore";
 
 const UserProfile = () => {
   const { setData, stepTwo } = useFormStore();
@@ -17,8 +17,8 @@ const UserProfile = () => {
   const { handleSubmit, formState } = methods;
   const { errors } = formState;
 
-  const onSubmit = (data: StepOneData) => {
-    setData({ step: 1, data });
+  const onSubmit = (data: StepTwoData) => {
+    setData({ step: 2, data });
     console.log("company data:", data);
   };
 

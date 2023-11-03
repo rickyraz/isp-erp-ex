@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-import type { StepOneData, StepTwoData, StepThreeData } from "../type";
+import type { StepOneData, StepTwoData, StepThreeData } from "../lib/type";
 
 const stepVariant = {
   1: "stepOne",

@@ -1,6 +1,16 @@
+import { useCart } from "@/store/useCart";
+
 function PricingDetail() {
   return (
     <section className="max-w-5xl mx-auto py-14">
+      {/* <div>
+        <button onClick={addProductQuantity} className="bg-slate-400 p-4">
+          Buy
+        </button>
+        <button onClick={removeProductQuantity} className="bg-blue-100 p-4">
+          Remove
+        </button>
+      </div> */}
       <table className="rounded ">
         <THead />
         <tbody>

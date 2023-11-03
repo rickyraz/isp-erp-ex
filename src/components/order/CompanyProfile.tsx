@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import useFormStore from "@/lib/store/useFormStore";
+import useFormStore from "@/store/useFormStore";
 import type { StepOneData } from "@/lib/type";
 import { stepOneSchema } from "@/lib/validation/yup";
 import Input from "@/components/form/Input";

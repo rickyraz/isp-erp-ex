@@ -1,3 +1,5 @@
+import Home from "./images/home.png";
+
 function Hero() {
   return (
     <section className=" pt-24 bg-[#161D27] ">
@@ -12,8 +14,8 @@ function Hero() {
         <div className="relative -bottom-14 ">
           <img
             className="object-cover w-full max-h-[500px] rounded-2xl shadow-sm  shadow-[#232b42]/10"
-            // src="https://images.pexels.com/photos/4220967/pexels-photo-4220967.jpeg"
-            src="/image/home.png"
+            // src="./images/home.png"
+            src={Home}
             alt="Volcano"
           />
         </div>

@@ -19,9 +19,10 @@ function Header() {
             <li>Pricing</li>
           </Link>
 
-          <a href="/order">
+          <Link to="/order">
             <li>Order</li>
-          </a>
+          </Link>
+
           <li>How to order</li>
           <li>Guide</li>
         </ul>
