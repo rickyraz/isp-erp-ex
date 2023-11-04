@@ -1,10 +1,10 @@
 import { Router, Route, RootRoute } from "@tanstack/react-router";
-import Landing from "@/pages/landingpage/app";
-
-import Dashboard from "@/pages/dashboard/DashboardWrap";
 import Root from "./RootRouterWrapper";
-import PricingPage from "@/pages/landingpage/pricing/Pricing";
-import Order from "@/pages/landingpage/order/Order";
+
+import Landing from "@/pages/LandingPage/app";
+import Dashboard from "@/pages/Dashboard/DashboardWrap";
+import PricingPage from "@/pages/LandingPage/Pricing/Pricing";
+import Order from "@/pages/LandingPage/Order/Order";
 
 // Root
 const rootRoute = new RootRoute({
