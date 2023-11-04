@@ -2,7 +2,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
 import { yupResolver } from "@hookform/resolvers/yup";
-import type { StepTwoData } from "@/lib/type";
+import type { StepTwoData } from "@/components/order/type";
 import { stepTwoSchema } from "@/lib/validation/yup";
 import useFormStore from "@/store/useFormStore";
 

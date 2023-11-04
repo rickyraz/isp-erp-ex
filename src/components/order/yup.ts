@@ -1,9 +1,4 @@
 import * as yup from "yup";
-import {
-  type StepOneData,
-  type StepThreeData,
-  type StepTwoData,
-} from "../type";
 
 // Definisikan skema validasi yang sesuai dengan StepOneData
 export const stepOneSchema = yup.object().shape({

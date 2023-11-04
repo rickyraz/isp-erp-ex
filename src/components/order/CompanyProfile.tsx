@@ -3,8 +3,8 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import useFormStore from "@/store/useFormStore";
-import type { StepOneData } from "@/lib/type";
-import { stepOneSchema } from "@/lib/validation/yup";
+import type { StepOneData } from "@/components/order/type";
+import { stepOneSchema } from "./yup";
 import Input from "@/components/form/Input";
 
 const CompanyProfile = () => {
