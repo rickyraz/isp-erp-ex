@@ -2,9 +2,9 @@ import { Router, Route, RootRoute } from "@tanstack/react-router";
 import Root from "./RootRouterWrapper";
 
 import Landing from "@/pages/LandingPage/app";
-import Dashboard from "@/pages/Dashboard/DashboardWrap";
 import PricingPage from "@/pages/LandingPage/Pricing/Pricing";
 import Order from "@/pages/LandingPage/Order/Order";
+import Dashboard from "@/pages/Dashboard/DashboardWrap";
 
 // Root
 const rootRoute = new RootRoute({
@@ -39,14 +39,14 @@ const orderPage = new Route({
 // });
 
 // Dashboard (dashboard.tsx) route - masuk ke dashboard
-// const dashboardRoute = new Route({
-//   getParentRoute: () => rootRoute,
-//   path: "/dashboard",
-//   component: Dashboard,
-// });
+const dashboardRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/dashboard",
+  component: Dashboard,
+});
 
 // All Route - List of route
-const allRoute = [indexRoute, pricingPage, orderPage];
+const allRoute = [indexRoute, pricingPage, orderPage, dashboardRoute];
 
 // Create the Route-TREE for using all routes
 const routeTree = rootRoute.addChildren(allRoute);

@@ -1,4 +1,3 @@
-import { create } from "zustand";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -16,7 +15,6 @@ const CompanyProfile = () => {
     defaultValues: stepOne || {},
   });
   const { handleSubmit, formState } = methods;
-  const { errors } = formState;
 
   const onSubmit = (data: StepOneData) => {
     setData({ step: 1, data });
