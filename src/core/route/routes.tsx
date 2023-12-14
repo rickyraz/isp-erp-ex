@@ -1,34 +1,34 @@
-import { Router, Route, RootRoute } from "@tanstack/react-router";
+import { RootRoute, Route, Router } from "@tanstack/react-router";
 import Root from "./RootRouterWrapper";
 
-import Landing from "@/pages/LandingPage/app";
-import PricingPage from "@/pages/LandingPage/Pricing/Pricing";
-import Order from "@/pages/LandingPage/Order/Order";
 import Dashboard from "@/pages/Dashboard/DashboardWrap";
+import Order from "@/pages/LandingPage/Order/Order";
+import PricingPage from "@/pages/LandingPage/Pricing/Pricing";
+import Landing from "@/pages/LandingPage/app";
 
 // Root
 const rootRoute = new RootRoute({
-  component: Root,
+	component: Root,
 });
 
 // Index (App.tsx) route
 const indexRoute: Route = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/",
-  component: Landing,
+	getParentRoute: () => rootRoute,
+	path: "/",
+	component: Landing,
 });
 
 // About (pricing-page.tsx) route
 const pricingPage = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/pricing",
-  component: PricingPage,
+	getParentRoute: () => rootRoute,
+	path: "/pricing",
+	component: PricingPage,
 });
 
 const orderPage = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/order",
-  component: Order,
+	getParentRoute: () => rootRoute,
+	path: "/order",
+	component: Order,
 });
 
 // Login (login.tsx) route
@@ -40,9 +40,9 @@ const orderPage = new Route({
 
 // Dashboard (dashboard.tsx) route - masuk ke dashboard
 const dashboardRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/dashboard",
-  component: Dashboard,
+	getParentRoute: () => rootRoute,
+	path: "/dashboard",
+	component: Dashboard,
 });
 
 // All Route - List of route
@@ -56,7 +56,7 @@ export const routeClient = new Router({ routeTree });
 
 // Register your router for maximum type safety -> for using as attr
 declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof routeClient;
-  }
+	interface Register {
+		router: typeof routeClient;
+	}
 }

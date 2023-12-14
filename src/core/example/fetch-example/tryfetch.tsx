@@ -1,5 +1,5 @@
 function JSONComponent() {
-  return <div>tryfetch</div>;
+	return <div>tryfetch</div>;
 }
 
 export default JSONComponent;

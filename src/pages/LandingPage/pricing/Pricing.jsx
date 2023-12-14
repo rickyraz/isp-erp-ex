@@ -1,15 +1,15 @@
-import React from "react";
+import Layout from "@/components/Layout";
 import Pricing from "@/components/pricing/Pricing";
 import PricingDetail from "@/components/pricing/PricingDetail";
-import Layout from "@/components/Layout";
+import React from "react";
 
 function PricingPage() {
-  return (
-    <Layout>
-      <Pricing />
-      <PricingDetail />
-    </Layout>
-  );
+	return (
+		<Layout>
+			<Pricing />
+			<PricingDetail />
+		</Layout>
+	);
 }
 
 export default PricingPage;

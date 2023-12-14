@@ -8,17 +8,17 @@ import TableContainer from "@/components/Table/y-shadcn-table";
 import { Outlet } from "@tanstack/react-router";
 
 function Dashboard() {
-  return (
-    <div className="flex ">
-      {/* <SimpleTable /> */}
-      {/* <SideNav /> */}
-      <SideNav />
-      <section>
-        <TableContainer />
-        <Outlet />
-      </section>
-    </div>
-  );
+	return (
+		<div className="flex ">
+			{/* <SimpleTable /> */}
+			{/* <SideNav /> */}
+			<SideNav />
+			<section>
+				<TableContainer />
+				<Outlet />
+			</section>
+		</div>
+	);
 }
 
 export default Dashboard;
