@@ -11,7 +11,6 @@ const config = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
-
     // Path to the Tremor module
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
